@@ -17,7 +17,7 @@ export const BlogProvider = ({ children }) => {
     {
       title: "Smol Borking",
       body:
-        " He made many woofs super chub ur givin me a spook blep the neighborhood pupper smol borking doggo with a long snoot for pats, blop waggy wags fluffer the neighborhood pupper."
+        "He made many woofs super chub ur givin me a spook blep the neighborhood pupper smol borking doggo with a long snoot for pats, blop waggy wags fluffer the neighborhood pupper."
     },
     {
       title: "Heckin Good",
@@ -43,13 +43,13 @@ export const BlogProvider = ({ children }) => {
   const [blogList, setBlogList] = useState(initialBlogs);
 
   const addBlog = (title, body) => {
-    setBlogList(prevState => {
-      [...prevState, { title, body }];
-    });
+    setBlogList([...blogList, { title, body }]);
   };
 
   return (
-    <BlogContext.Provider value={blogList}>{children}</BlogContext.Provider>
+    <BlogContext.Provider value={{ data: blogList, addBlog: addBlog }}>
+      {children}
+    </BlogContext.Provider>
   );
 };
 

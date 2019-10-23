@@ -1,15 +1,27 @@
 import React, { useContext } from "react";
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity
+} from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import BlogContext from "../context/BlogContext";
 
 const HomeScreen = () => {
-  const blogs = useContext(BlogContext);
+  const { data, addBlog } = useContext(BlogContext);
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.heading}>Recent Blogs</Text>
+      <View style={styles.headingContainer}>
+        <Text style={styles.heading}>Recent Blogs</Text>
+        <View style={styles.iconContainer}>
+          <MaterialIcons name="add" style={styles.newIcon} />
+        </View>
+      </View>
       <FlatList
-        data={blogs}
-        keyExtractor={blogs => blogs.title}
+        data={data}
+        keyExtractor={data => data.title}
         renderItem={({ item }) => {
           return (
             <View style={styles.innerContainer}>
@@ -50,6 +62,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "rgba(79,81,179,0.7)",
     marginBottom: 10
+  },
+  newIcon: {
+    fontSize: 30,
+    color: "#ffffff"
+  },
+  headingContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  iconContainer: {
+    backgroundColor: "rgba(79,81,179,1.0)",
+    borderRadius: 50
   }
 });
 

@@ -10,9 +10,7 @@ const navigator = createStackNavigator(
   },
   {
     initialRouteName: "Home",
-    defaultNavigationOptions: {
-      title: "React Native Blog"
-    }
+    defaultNavigationOptions: {}
   }
 );
 
