@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useReducer, useState } from "react";
+import BlogReducer from "../reducers/BlogReducer";
 const BlogContext = React.createContext();
 
 export const BlogProvider = ({ children }) => {
@@ -40,14 +40,13 @@ export const BlogProvider = ({ children }) => {
         "What a nice floof doggorino fluffer borkf extremely cuuuuuute, puggo tungg long bois. Extremely cuuuuuute stop it fren maximum borkdrive, fat boi. Noodle horse much ruin diet adorable doggo!"
     }
   ];
-  const [blogList, setBlogList] = useState(initialBlogs);
+  const [blogList, dispatch] = useReducer(BlogReducer, initialBlogs);
   const [title, setTitle] = useState("Woff Blep");
   const [body, setBody] = useState(
     "What a nice floof doggorino fluffer borkf extremely cuuuuuute, puggo tungg long bois. Extremely cuuuuuute stop it fren maximum borkdrive, fat boi. Noodle horse much ruin diet adorable doggo!"
   );
-
   const addBlog = () => {
-    setBlogList([...blogList, { title, body }]);
+    dispatch({ type: "ADD_BLOG", title, body });
   };
 
   return (
