@@ -15,8 +15,14 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "ADD_BLOG", title, body, id: uuid() });
   };
 
+  const deleteBlog = id => {
+    dispatch({ type: "DELETE_BLOG", id: id });
+  };
+
   return (
-    <BlogContext.Provider value={{ data: blogList, addBlog: addBlog }}>
+    <BlogContext.Provider
+      value={{ data: blogList, addBlog: addBlog, deleteBlog: deleteBlog }}
+    >
       {children}
     </BlogContext.Provider>
   );

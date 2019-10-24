@@ -11,8 +11,8 @@ import BlogContext from "../context/BlogContext";
 import Blog from "../components/Blog";
 import styles from "../styles/HomeStyles";
 
-const HomeScreen = () => {
-  const { data, addBlog } = useContext(BlogContext);
+const HomeScreen = ({ navigation }) => {
+  const { data, addBlog, deleteBlog } = useContext(BlogContext);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headingContainer}>
@@ -23,9 +23,24 @@ const HomeScreen = () => {
       </View>
       <FlatList
         data={data}
-        keyExtractor={data => data.title}
+        style={{ flex: 1 }}
+        keyExtractor={data => {
+          return data.id;
+        }}
         renderItem={({ item }) => {
-          return <Blog title={item.title} body={item.body} />;
+          return (
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={() => navigation.navigate("Show", { id: item.id })}
+            >
+              <Blog
+                title={item.title}
+                body={item.body}
+                id={item.id}
+                deleteBlog={() => deleteBlog(item.id)}
+              />
+            </TouchableOpacity>
+          );
         }}
       ></FlatList>
     </View>

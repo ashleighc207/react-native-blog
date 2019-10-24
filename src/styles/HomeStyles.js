@@ -7,8 +7,6 @@ const styles = StyleSheet.create({
   heading: {
     textAlign: "center",
     fontSize: 24,
-    marginTop: 30,
-    marginBottom: 10,
     fontWeight: "bold",
     color: "rgba(79,81,179,1.0)"
   },
@@ -19,11 +17,15 @@ const styles = StyleSheet.create({
   headingContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-between",
+    marginHorizontal: 20,
+    marginBottom: 10,
+    marginTop: 30
   },
   iconContainer: {
     backgroundColor: "rgba(79,81,179,1.0)",
-    borderRadius: 50
+    borderRadius: 50,
+    padding: 2
   }
 });
 
