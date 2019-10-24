@@ -41,8 +41,12 @@ export const BlogProvider = ({ children }) => {
     }
   ];
   const [blogList, setBlogList] = useState(initialBlogs);
+  const [title, setTitle] = useState("Woff Blep");
+  const [body, setBody] = useState(
+    "What a nice floof doggorino fluffer borkf extremely cuuuuuute, puggo tungg long bois. Extremely cuuuuuute stop it fren maximum borkdrive, fat boi. Noodle horse much ruin diet adorable doggo!"
+  );
 
-  const addBlog = (title, body) => {
+  const addBlog = () => {
     setBlogList([...blogList, { title, body }]);
   };
 

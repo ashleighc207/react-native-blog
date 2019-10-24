@@ -15,9 +15,9 @@ const HomeScreen = () => {
     <View style={styles.mainContainer}>
       <View style={styles.headingContainer}>
         <Text style={styles.heading}>Recent Blogs</Text>
-        <View style={styles.iconContainer}>
+        <TouchableOpacity style={styles.iconContainer} onPress={addBlog}>
           <MaterialIcons name="add" style={styles.newIcon} />
-        </View>
+        </TouchableOpacity>
       </View>
       <FlatList
         data={data}
