@@ -10,7 +10,7 @@ const CreateScreen = ({ navigation }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <Text>Add a New Article</Text>
+      <Text style={styles.title}>Add a New Article</Text>
       <TextInput
         style={styles.textInput}
         value={title}
@@ -25,7 +25,11 @@ const CreateScreen = ({ navigation }) => {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => addBlog(title, body)}
+        onPress={() =>
+          addBlog(title, body, () => {
+            navigation.navigate("Home");
+          })
+        }
       >
         <Text style={styles.buttonText}> Add Article </Text>
       </TouchableOpacity>
