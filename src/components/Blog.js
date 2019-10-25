@@ -8,7 +8,7 @@ const Blog = ({ title, body, id, deleteBlog }) => {
     <View style={styles.innerContainer}>
       <View style={styles.blogItem}>
         <Text style={styles.blogTitle}>{title}</Text>
-        <Text style={styles.blogContent}>
+        <Text style={{ flexShrink: 1 }}>
           {body.length > 80 ? body.substr(0, 80) + "..." : body}
         </Text>
       </View>

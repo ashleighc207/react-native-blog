@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     color: "rgba(79,81,179,0.7)"
   },
   titleContainer: {
-    flexDirection: "row"
+    flexDirection: "row",
+    marginBottom: 20
   }
 });
 

@@ -1,26 +1,33 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+let fullWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   innerContainer: {
-    marginHorizontal: 20,
-    marginVertical: 20,
-    lineHeight: 1.5,
-    letterSpacing: 1.1,
     flexDirection: "row",
-    alignContent: "space-between",
-    flex: 1
+    justifyContent: "space-between",
+    alignItems: "center",
+    flex: 1,
+    marginHorizontal: 20,
+    marginVertical: 15
   },
   blogTitle: {
     fontSize: 18,
     fontWeight: "bold",
     color: "rgba(79,81,179,0.7)",
-    marginBottom: 10,
+    marginBottom: 10
+  },
+  blogItem: {
+    flex: 1
+  },
+  blogContent: {
+    alignSelf: "flex-start",
     flex: 2
   },
   deleteIcon: {
-    fontSize: 30,
+    fontSize: 24,
     color: "rgba(79,81,179,0.7)",
-    flex: 1
+    flexShrink: 1,
+    marginLeft: 30
   }
 });
 
