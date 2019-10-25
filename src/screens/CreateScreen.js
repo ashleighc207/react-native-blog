@@ -1,16 +1,34 @@
-import React, { useContext } from "react";
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import React, { useContext, useState } from "react";
+import { Text, TextInput, Button, View, TouchableOpacity } from "react-native";
 import BlogContext from "../context/BlogContext";
-import styles from "../styles/ShowStyles";
-import { MaterialIcons } from "@expo/vector-icons";
+import styles from "../styles/CreateStyles";
 
 const CreateScreen = ({ navigation }) => {
-  const id = navigation.getParam("id");
-  const { data } = useContext(BlogContext);
+  const { addBlog } = useContext(BlogContext);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
   return (
-    <View style={styles.container}>
-      <Text> create</Text>
+    <View style={styles.mainContainer}>
+      <Text>Add a New Article</Text>
+      <TextInput
+        style={styles.textInput}
+        value={title}
+        onChangeText={text => setTitle(text)}
+      />
+      <TextInput
+        style={styles.textareaInput}
+        value={body}
+        onChangeText={text => setBody(text)}
+        multiline={true}
+        numberOfLines={4}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => addBlog(title, body)}
+      >
+        <Text style={styles.buttonText}> Add Article </Text>
+      </TouchableOpacity>
     </View>
   );
 };

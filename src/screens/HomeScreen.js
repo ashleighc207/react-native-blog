@@ -12,12 +12,15 @@ import Blog from "../components/Blog";
 import styles from "../styles/HomeStyles";
 
 const HomeScreen = ({ navigation }) => {
-  const { data, addBlog, deleteBlog } = useContext(BlogContext);
+  const { data, deleteBlog } = useContext(BlogContext);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headingContainer}>
-        <Text style={styles.heading}>Recent Blogs</Text>
-        <TouchableOpacity style={styles.iconContainer} onPress={addBlog}>
+        <Text style={styles.heading}>Recent Articles</Text>
+        <TouchableOpacity
+          style={styles.iconContainer}
+          onPress={() => navigation.navigate("Create")}
+        >
           <MaterialIcons name="add" style={styles.newIcon} />
         </TouchableOpacity>
       </View>
