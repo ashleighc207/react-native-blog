@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   textareaInput: {
-    height: 40,
+    height: 100,
     width: 300,
     borderBottomWidth: 2,
     borderBottomColor: "rgba(79,81,179,1.0)",
