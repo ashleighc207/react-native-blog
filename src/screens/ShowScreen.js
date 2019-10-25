@@ -14,7 +14,11 @@ const ShowScreen = ({ navigation }) => {
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{blog.title}</Text>
         <TouchableOpacity>
-          <MaterialIcons name="edit" style={styles.editIcon} />
+          <MaterialIcons
+            name="edit"
+            style={styles.editIcon}
+            onPress={() => navigation.navigate("Edit", { id: id })}
+          />
         </TouchableOpacity>
       </View>
       <View style={styles.blogContainer}>

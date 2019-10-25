@@ -6,9 +6,9 @@ const BlogReducer = (state, action) => {
         { title: action.title, body: action.body, id: action.id }
       ];
     case "EDIT_BLOG":
-      return state.filter(blog => {
-        blog.id === action.id
-          ? (blog: { title: action.title, body: action.body })
+      return state.map(blog => {
+        return blog.id === action.id
+          ? { id: action.id, title: action.title, body: action.body }
           : blog;
       });
     case "DELETE_BLOG":

@@ -4,13 +4,15 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import CreateScreen from "./src/screens/CreateScreen";
 import ShowScreen from "./src/screens/ShowScreen";
+import EditScreen from "./src/screens/EditScreen";
 import { BlogProvider } from "./src/context/BlogContext";
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
     Show: ShowScreen,
-    Create: CreateScreen
+    Create: CreateScreen,
+    Edit: EditScreen
   },
   {
     initialRouteName: "Home",
