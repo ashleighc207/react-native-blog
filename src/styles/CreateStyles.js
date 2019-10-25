@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   title: {
-    marginHorizontal: 40,
+    marginVertical: 40,
     fontSize: 20,
     color: "rgba(79,81,179,0.7)"
   },

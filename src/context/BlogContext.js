@@ -8,8 +8,9 @@ const BlogContext = React.createContext();
 export const BlogProvider = ({ children }) => {
   const [blogList, dispatch] = useReducer(BlogReducer, initialBlogs);
 
-  const addBlog = (title, body) => {
+  const addBlog = (title, body, callback) => {
     dispatch({ type: "ADD_BLOG", title, body, id: uuid() });
+    callback();
   };
 
   const deleteBlog = id => {
