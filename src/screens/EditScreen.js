@@ -29,7 +29,7 @@ const EditScreen = ({ navigation }) => {
         style={styles.button}
         onPress={() =>
           editBlog(id, title, body, () => {
-            navigation.navigate("Home");
+            navigation.goBack();
           })
         }
       >
